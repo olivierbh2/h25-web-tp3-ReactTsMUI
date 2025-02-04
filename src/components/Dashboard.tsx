@@ -1,34 +1,21 @@
 import { Card, CardContent, Container, Grid2, List, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import {TaskList} from "./TaskList";
 
 function Dashboard() {
   return (
-    
     <Container sx={{ marginY: 3 }}>
-      <Card sx={{ maxWidth: 345 }}>
-        <CardContent>
-        
-          <Typography variant="h5" 
-            sx={{ 
-            margin: 0,
-            fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
-            fontSize: '1.5rem',
-            lineHeight: 1.334,
-            letterSpacing: '0em',
-            color: 'rgb(25, 118, 210)',
-            fontWeight: 700,
-            textAlign: 'center'}}
-            >Vos listes de tâches
-          </Typography>
+    <Grid2 container spacing={2}>
+      <Grid2 size={{ xs: 12, md: 5, lg: 4 }}>
+        <TaskList/>
+      </Grid2>
+      <Grid2 size={{ xs: 12, md: 7, lg: 8 }}>
+        À FAIRE: Créer un composant qui affiche les tâches à faire et les
+        tâches complétées de la liste sélectionnée.
+      </Grid2>
+    </Grid2>
+  </Container>
 
-          <List>
-            
-          </List>
-
-        
-        </CardContent>
-      </Card>
-    </Container>
   );
 }
 
