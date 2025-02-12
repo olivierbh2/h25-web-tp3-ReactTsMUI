@@ -142,13 +142,14 @@ export const TaskList: React.FC<TaskListProps> = ({ onSelectTaskList, onDeleteSe
             <Typography
               variant="body1"
               sx={{
-                margin: "10px",
+                margin: "20px",
                 fontFamily: "Roboto, Helvetica, Arial, sans-serif",
                 fontWeight: 400,
                 fontSize: "1rem",
                 lineHeight: 1.5,
                 letterSpacing: "0.00938em",
                 fontStyle: "italic",
+                textAlign: "center",
                 color: "grey",
               }}
             >
@@ -159,12 +160,12 @@ export const TaskList: React.FC<TaskListProps> = ({ onSelectTaskList, onDeleteSe
 
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <Button
-              sx={{ minWidth: 300, justifyContent: "center" }} variant="outlined" color="primary" startIcon={<PlaylistAdd/>} onClick={handleOpenDialog}>Nouvelle liste</Button>
+              sx={{ minWidth: 300, justifyContent: "center" }} variant="outlined" color="primary" startIcon={<PlaylistAdd />} onClick={handleOpenDialog}>Nouvelle liste</Button>
           </Box>
 
 
           <Dialog open={dialogOpen} onClose={handleCloseDialog}>
-            <DialogTitle><PlaylistAdd/> Nouvelle liste</DialogTitle>
+            <DialogTitle><PlaylistAdd /> Nouvelle liste</DialogTitle>
             <DialogContent>
               <TextField
                 required
@@ -185,7 +186,7 @@ export const TaskList: React.FC<TaskListProps> = ({ onSelectTaskList, onDeleteSe
                 onKeyDown={(e) => {
                   if (e.key === "Enter") {
                     e.preventDefault();
-                    handleCreateList(); 
+                    handleCreateList();
                   }
                 }}
                 error={isTooltipOpen && !listName.trim()}

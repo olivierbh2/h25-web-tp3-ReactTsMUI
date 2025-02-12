@@ -24,7 +24,7 @@ import AddIcon from '@mui/icons-material/Add';
 
 interface TasksProps {
     taskListId: string | null;
-    taskListName: string | null; 
+    taskListName: string | null;
 }
 
 
@@ -85,7 +85,7 @@ export const Tasks: React.FC<TasksProps> = ({ taskListId, taskListName }) => {
 
     return (
         <Card>
-            <CardContent sx={{margin:2}}>
+            <CardContent sx={{ margin: 2 }}>
                 {taskListName && (
                     <Typography
                         variant="h5"
@@ -140,31 +140,37 @@ export const Tasks: React.FC<TasksProps> = ({ taskListId, taskListName }) => {
                 </Typography>
                 {tachesAFaire.length > 0 ? (
                     <List>
+
                         {tachesAFaire.map((task) => (
-                            <ListItem
-                                key={task.id}
-                                secondaryAction={
-                                    <>
-                                        <IconButton onClick={() => handleToggleImportant(task)}>
-                                            {task.important ? <StarIcon color="primary" /> : <StarBorderIcon />}
-                                        </IconButton>
-                                        <IconButton
-                                            edge="end"
-                                            aria-label="delete"
-                                            onClick={() => handleDeleteTask(task)}
-                                        >
-                                            <DeleteOutlineIcon />
-                                        </IconButton>
-                                    </>
-                                }
-                            >
-                                <Checkbox
-                                    checked={task.completed}
-                                    onChange={() => handleToggleTask(task)}
-                                />
-                                <ListItemText primary={task.name} />
-                            </ListItem>
+                            <Card sx={{ mb: 1 }}>
+                                <ListItem
+                                    key={task.id}
+                                    secondaryAction={
+                                        <>
+
+                                            <IconButton onClick={() => handleToggleImportant(task)}>
+                                                {task.important ? <StarIcon color="primary" /> : <StarBorderIcon />}
+                                            </IconButton>
+                                            <IconButton
+                                                edge="end"
+                                                aria-label="delete"
+                                                onClick={() => handleDeleteTask(task)}
+                                            >
+                                                <DeleteOutlineIcon />
+                                            </IconButton>
+
+                                        </>
+                                    }
+                                >
+                                    <Checkbox
+                                        checked={task.completed}
+                                        onChange={() => handleToggleTask(task)}
+                                    />
+                                    <ListItemText primary={task.name} />
+                                </ListItem>
+                            </Card>
                         ))}
+
                     </List>
                 ) :
 
@@ -204,31 +210,35 @@ export const Tasks: React.FC<TasksProps> = ({ taskListId, taskListName }) => {
                 </Typography>
                 {tachesComplete.length > 0 ? (
                     <List>
+
                         {tachesComplete.map((task) => (
-                            <ListItem
-                                key={task.id}
-                                secondaryAction={
-                                    <>
-                                        <IconButton onClick={() => handleToggleImportant(task)}>
-                                            {task.important ? <StarIcon color="primary" /> : <StarBorderIcon />}
-                                        </IconButton>
-                                        <IconButton
-                                            edge="end"
-                                            aria-label="delete"
-                                            onClick={() => handleDeleteTask(task)}
-                                        >
-                                            <DeleteOutlineIcon />
-                                        </IconButton>
-                                    </>
-                                }
-                            >
-                                <Checkbox
-                                    checked={task.completed}
-                                    onChange={() => handleToggleTask(task)}
-                                />
-                                <ListItemText primary={task.name} />
-                            </ListItem>
+                            <Card sx={{ mb: 1 }}>
+                                <ListItem
+                                    key={task.id}
+                                    secondaryAction={
+                                        <>
+                                            <IconButton onClick={() => handleToggleImportant(task)}>
+                                                {task.important ? <StarIcon color="primary" /> : <StarBorderIcon />}
+                                            </IconButton>
+                                            <IconButton
+                                                edge="end"
+                                                aria-label="delete"
+                                                onClick={() => handleDeleteTask(task)}
+                                            >
+                                                <DeleteOutlineIcon />
+                                            </IconButton>
+                                        </>
+                                    }
+                                >
+                                    <Checkbox
+                                        checked={task.completed}
+                                        onChange={() => handleToggleTask(task)}
+                                    />
+                                    <ListItemText primary={task.name} />
+                                </ListItem>
+                            </Card>
                         ))}
+
                     </List>
                 ) :
 
